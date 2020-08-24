@@ -4,20 +4,25 @@
 ;; sync' after modifying this file!
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
-(global-set-key (kbd "C-o") 'other-window)
+(global-set-key (kbd "s-o") 'other-window)
 (global-set-key (kbd "C-,") 'avy-goto-char)
-;; CHANGE WINDOW
-(define-key evil-normal-state-map "go" 'other-window)
 ;; ESCAPE INSERT MODE
 (use-package! evil-escape
-
 :init
-
 (setq evil-escape-key-sequence "jj"))
+;; find files in project
+(map! :leader
+      :desc "Find file in project" "SPC" #'project-find-file)
+
+(add-to-list 'auto-mode-alist
+             '("\\.spec.js\\'" . (lambda ()
+                                    (js2-mode)
+                                    (flycheck-mode -1))))
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Witold Zolnowski"
+      user-mail-address "blue3656@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
