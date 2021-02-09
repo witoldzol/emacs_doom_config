@@ -1,0 +1,2 @@
+Destination folder:
+~/.doom.d/
